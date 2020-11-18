@@ -9,7 +9,7 @@ import { Button } from "reactstrap";
 import {
   setStateObjectProperty,
   deleteItemFromStateArrayByMongoId,
-} from "../components/util/StateUtil";
+} from "cloak-state-util";
 
 import "./Index.scss";
 
@@ -36,7 +36,7 @@ function Index() {
 
     const response = await fetch(url);
     const data = await response.json();
-    if (definitions === undefined) {
+    if (definitions === undefined && data[0]) {
       setDefinitions(data);
 
       Object.keys(data[0])
@@ -61,7 +61,9 @@ function Index() {
   }, []);
 
   function updateDelete(id) {
-    deleteItemFromStateArrayByMongoId(songs, setSongs, id);
+    console.log("CALLED");
+    console.log(definitions);
+    deleteItemFromStateArrayByMongoId(definitions, setDefinitions, id);
   }
 
   return (
