@@ -72,7 +72,7 @@ function ResourceForm({
 
   return (
     <>
-      <Form id="resource" onSubmit={onSubmit}>
+      <Form id="resource-form" onSubmit={onSubmit}>
         <InputField
           name="term"
           stateValue={term}
@@ -85,6 +85,14 @@ function ResourceForm({
           setStateFunc={setDefinition}
           inputType="text"
         />
+        <Button
+          color="primary"
+          type="submit"
+          className="submit-button"
+          onClick={onSubmit}
+        >
+          Submit
+        </Button>
       </Form>
       <Link to="/">
         <Button

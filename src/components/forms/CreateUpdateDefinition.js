@@ -31,12 +31,13 @@ function CreateUpdateDefinition({ match: { params }, create }) {
     }
 
     fetch(url)
-      .then((response) => response.json)
+      .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         const form = document.getElementById("resource-form");
 
         Object.keys(data)
-          .filter((field) => field !== "_id")
+          .filter((field) => field !== "_id" && field !== "__v")
           .forEach((field) => {
             let computedName = field;
 
@@ -48,6 +49,8 @@ function CreateUpdateDefinition({ match: { params }, create }) {
             const rest = computedName.slice(1);
 
             computedName = `set${firstCapLetter}${rest}`;
+
+            console.log(computedName);
 
             setMethods[computedName](data[field]);
           });

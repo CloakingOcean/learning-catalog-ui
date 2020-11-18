@@ -24,7 +24,7 @@ function MainSwitch() {
       />
 
       <Route
-        path="/api/defintions/updateDefinition/:id"
+        path="/api/definitions/updateDefinition/:id"
         render={(props) => {
           return <CreateUpdateDefinition {...props} create={false} />;
         }}

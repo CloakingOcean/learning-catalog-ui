@@ -54,7 +54,7 @@ function InputField({
         <>
           {createFragment({
             label: (
-              <Label key={`${name - label}`} htmlFor={name}>
+              <Label key={`${name}-label`} htmlFor={name}>
                 {name}
               </Label>
             ),
